@@ -1,0 +1,5 @@
+- hosts: all
+  remote_user: pi
+  become: yes
+  tasks:
+    - debug: msg="Host is {{ ansible_fqdn }}"
