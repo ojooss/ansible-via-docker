@@ -1,0 +1,21 @@
+version: "2"
+
+services:
+
+  ansible:
+    container_name: ansible
+    image: registry.area21.lan:5000/ansible-via-docker:latest
+    volumes:
+      - "./workdir:/ansible"
+    environment:
+      - "ANSIBLE_HOST_KEY_CHECKING=False"
+
+    #test installation
+    #command: "ansible --version"
+
+    #prvent ssh-copy-id to use existing keys
+    #command: "ssh-copy-id -o StrictHostKeyChecking=no -i /root/.ssh/id_rsa.pub pi@192.168.21.202"
+
+    #command: "scp  -o StrictHostKeyChecking=no helloworld.yaml pi@192.168.21.210:/home/pi/test.txt"
+
+    command: "ansible-playbook -i inventory.ini helloworld.yaml"

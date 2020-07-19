@@ -17,3 +17,8 @@ and finally we can run plays.
 Therefore we use the workdir as a host volume. And we disable ANSIBLE_HOST_KEY_CHECKING, otherwise connection will be blocked by default 
 
     docker run --rm -v ${PWD}/workdir:/ansible -e ANSIBLE_HOST_KEY_CHECKING=False ansible-via-docker:latest ansible-playbook -i inventory.ini helloworld.yaml
+
+## finally run ansible playbook
+Just run docker-compose like this
+
+    docker-compose run ansible
