@@ -3,11 +3,11 @@ FROM debian
 USER root
 
 RUN \
-  # install ansoble
+  # install ansible
   apt-get update && \
   apt install -y ansible && \
   # install some helpers
-  apt install -y iputils-ping && \
+  apt install -y iputils-ping sshpass && \
   # generate SSH key
   apt-get install -y openssh-client && \
   ssh-keygen -q -f /root/.ssh/id_rsa -P "" -C "ansible-via-docker"
