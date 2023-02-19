@@ -4,7 +4,7 @@ services:
 
   ansible:
     container_name: ansible
-    image: registry.area21.lan:5000/ansible-via-docker:latest
+    image: bsmart/ansible-via-docker:latest
     volumes:
       - "./workdir:/ansible"
     environment:
